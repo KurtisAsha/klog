@@ -2,17 +2,13 @@
 action_label: Read More &rarr;
 action_link: /about
 action_type: text
-description: Sit down fool, relax, and get to know Hugo Apéro. Built on top of Blogophonic,
-  we wanted to create a polished Hugo theme with the right features for a true personal
-  website. We set out to create a theme that is a pleasure to learn, and one that
-  helps others get to know you better. It is more than a blog, with flexible custom
-  layouts that help you introduce yourself online.
+description: Welcome 🤗 and thanks for popping by. This here site is my (Kurtis) blog, klog for short. It serves to document my personal R related projects and to detail general data science issues i've journeyed the internet for and don't want to forget. In short, use this space to unKlog my headspace 🙆🏽‍♂️, and if any of my writing is useful for anyone, then grand. 
 image_left: true
 images:
 - img/my_8bit_mush_circle.png
 show_action_link: true
 show_social_links: true
-subtitle: An exercise in trying to remember what I've learned
+subtitle: An exercise in trying to remember what I've learnt
 text_align_left: false
 title: Kurtis Smith
 type: home
