@@ -12,6 +12,11 @@ layout: single
 subtitle: Social icons may appear on several pages throughout your site. Learn how
   to set them up, and control where they show up.
 title: Set up your social
+links:
+- icon: star # icon name without the 'fa-'
+  icon_pack: fas
+  name: website
+  url: https://allisonhorst.github.io/palmerpenguins/
 ---
 
 There are five places where you can choose to show social icons. Here is the tl;dr:
