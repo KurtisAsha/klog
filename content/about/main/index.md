@@ -14,7 +14,7 @@ intro: |
    
    Beyond coding: I lay my hat in London, UK, and share the utilities with my son and fiancé. I'm a fan of both basketball 🏀 and ⚽ football. Love a good read, mainly fantasy. Favourite books are The Gentlemen Bastard & Mistborn Series. 
    
-   I too like to game. I fell hard for Final Fantasy 8 back in the 90's and if limited to one dish for the rest of my life 🍕 pizza.
+   I too like to game. I fell hard for Final Fantasy 8 back in the 90's and if limited to one dish for the rest of my life, it'll be 🍕 pizza.
    
 show_outro: false
 outro: |
