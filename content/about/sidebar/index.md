@@ -7,11 +7,11 @@ show_social_links: true # specify social accounts in site config
 audio_link_label: # leave blank to exclude
 link_list_label: # bookmarks, elsewhere, etc.
 link_list:
-- name: Paris
+- name: # Paris
   url: https://en.wikipedia.org/wiki/Paris
-- name: Pastries
+- name: # Pastries
   url: https://en.wikipedia.org/wiki/Pastry
-- name: People
+- name: # People
   url: https://en.wikipedia.org/wiki/People
 ---
 
