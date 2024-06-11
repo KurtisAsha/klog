@@ -44,6 +44,8 @@ enableEmoji = true
   sharing_image = "/img/my_8bit_mush_circle.png"
   # Twitter username (without @). Used when a visitor shares your site on Twitter.
   twitter = "apreshill"
+
+  
   
   # use a built-in color theme
   # one of: earth / forest / grayscale / magma / paper / peach / plum /
