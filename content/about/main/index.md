@@ -12,7 +12,7 @@ intro: |
    
    Often background music without lyrics otherwise I'll just sing along e.g. Chillhop or DnB. 1-3 chinwags to decompress. A healthy portion of food with all the trimmings. 
    
-   Beyond coding: I lay my hat in London, UK, and share the utilities with my son and fiancé. I'm a fan of both basketball 🏀 and ⚽ football. Love a good read, mainly fantasy. Favourite books are The Gentlemen Bastard & Mistborn Series. 
+   Beyond coding: I lay my hat in London, UK, and share the utilities with my son and fiancé. I'm a fan of both basketball 🏀 and ⚽ football. Love a good read, mainly fantasy. Favourite books are The Gentlemen Bastard & Mistborn Series, follow me on [Goodreads](https://www.goodreads.com/user/show/18905514-kurtis-smith).
    
    I too like to game. I fell hard for Final Fantasy 8 back in the 90's and if limited to one dish for the rest of my life, it'll be 🍕 pizza.
    

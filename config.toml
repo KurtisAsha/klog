@@ -30,10 +30,10 @@ enableEmoji = true
 [params]
   orgName = "RStudio"
   orgLocal = "Anywhere"
-  description = "A modern, beautiful, and easily configurable blog theme for Hugo."
-  favicon = "/img/my_8bit_mush_circle.ico"
-  logo = "/img/my_8bit_mush_circle.png"
-  mainSections = ["blog", "project", "talk"]
+  description = ""
+  favicon = "/img/my_8bit_mush_circle_alt_2.ico"
+  logo = "/img/my_8bit_mush_circle_alt_3.png"
+  mainSections = ["blog", "project"]
   navallcaps = true
   # show/hide social icons in site header & footer
   # configure social icons and links below in [[params.social]]
@@ -48,7 +48,7 @@ enableEmoji = true
   # use a built-in color theme
   # one of: earth / forest / grayscale / magma / paper / peach / plum /
   #         poppy / primer / sky / violet / water 
-  theme = "earth"
+  theme = "magma"
   
   # or, leave theme empty & make your own palette
   # see docs at https://hugo-apero.netlify.app/blog/color-themes/
