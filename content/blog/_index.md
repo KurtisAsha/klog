@@ -1,8 +1,7 @@
 ---
 title: Blog
 description: | 
-  Machine learning, text analysis, and more
-author: Kurtis Smith
+author: "Kurtis Smith"
 cascade:
   author: Kurtis Smith
   show_author_byline: false
