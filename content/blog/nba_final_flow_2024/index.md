@@ -78,7 +78,7 @@ nba_2024_g5_pm_data <- read_csv('./input/nba-final-2024-game-5.csv', col_names =
 
 The data collation was a manual effort, a labour of love. After watching game 5 of the 2024 NBA finals I painstakingly noted down each activity along with the timestamp.
 
-To add assurance to this data set I checked each activity available on <a href="https://www.nba.com/game/dal-vs-bos-0042300405/play-by-play?period=All" class="uri"><span class="citation" data-cites="nba.com/play-by-play">nba.com/play-by-play (2024)</span></a> matched on timestamp and cross checked the summary player stats against <a href="https://www.nba.com/game/dal-vs-bos-0042300405/box-score?period=All" class="uri"><span class="citation" data-cites="nba.com/box-score">nba.com/box-score (2024)</span></a>.
+To add assurance to this data set I checked each activity available on [nba.com/play-by-play (2024)](https://www.nba.com/game/dal-vs-bos-0042300405/play-by-play?period=All) matched on timestamp and cross checked the summary player stats against [nba.com/box-score (2024)](https://www.nba.com/game/dal-vs-bos-0042300405/box-score?period=All).
 
 A few self imposed rules during data creation:
 
@@ -87,6 +87,8 @@ A few self imposed rules during data creation:
 - For free throws the case ends at the last free throw attempt
 
 - Unless specified from the nba website I have timestamped at the beginning of each activity
+
+**Data is available on [Kaggle](https://www.kaggle.com/datasets/kurtissmith/nba-final-game-5-process-mining) or [Github](https://github.com/KurtisAsha/klog/blob/main/content/blog/nba_final_flow_2024/input/nba-final-2024-game-5.csv)**
 
 ## Create Eventlog
 
@@ -370,7 +372,7 @@ A few noteworthy insights:
 
 #### Spectra
 
-Referenced in <a href="https://bupaverse.github.io/docs/performance_spectrum.html" class="uri"><span class="citation" data-cites="bupaverse_spectrum">bupaverse (2024)</span></a>, Denisov, Fahland, and Aalst (2018) provides another avenue to analyse performance. What the authors term ‘performance spectra’ defined as ‘The Performance Spectrum is a fully detailed data structure and visualization of all cases over all segments over time’ provides a taxonomy of performance patterns.
+Referenced in [bupaverse (2024)](https://bupaverse.github.io/docs/performance_spectrum.html), Denisov, Fahland, and Aalst (2018) provides another avenue to analyse performance. What the authors term ‘performance spectra’ defined as ‘The Performance Spectrum is a fully detailed data structure and visualization of all cases over all segments over time’ provides a taxonomy of performance patterns.
 
 ``` r
 nba_final_g5_eventlog %>%
