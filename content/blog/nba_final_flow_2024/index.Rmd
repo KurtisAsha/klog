@@ -11,7 +11,9 @@ output:
 categories:
   - package-exploration
 tags:
-  - sports-analytics, rstats
+  - bupaverse
+  - sports-analytics
+  - rstats
 summary: "The NBA final has concluded and I would like to play with process mining packages in bupaverse, let's path them."
 ---
 
