@@ -14,7 +14,7 @@ tags:
   - bupaverse
   - sports-analytics
   - rstats
-summary: "The NBA final has concluded and I would like to play with process mining packages in bupaverse, let's path them."
+summary: "The NBA final has concluded and I would like to play with process mining packages in bupaverse, let's marry them."
 ---
 
 ## Project Introduction 👋🏽
