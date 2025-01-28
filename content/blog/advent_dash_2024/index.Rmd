@@ -1,0 +1,73 @@
+---
+title: "Advent Calendar Ratings Dashboard"
+author: "Author: Kurtis Smith"
+date: "2025-01-27"
+slug: advent-dash-fm
+output: 
+ html_document:
+  fig_width: 10
+  fig_height: 6
+categories:
+  - fun
+tags:
+  - flexdashboard
+  - rstats
+summary: "A bit of festive fun: flexdashboard from Fortnum & Mason's advert calendar ratings"
+---
+
+```{r setup, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(include = FALSE)
+# Load packages
+library(tidyverse)
+library(janitor)
+
+theme_set(theme_minimal(
+ base_family = 'serif', base_size = 12))
+
+advent_appraisals_2024 <- read_csv("./input/advent-appraisal.csv")  %>% 
+ clean_names()
+
+```
+
+## Project Introduction
+
+For a bit of festive fun, I built a flexdashboard from Fortnum & Mason's advert calendar ratings. Participants included:
+-   Sofia Costa, resident wordsmith
+-   Laura da Costa Williams, resident chef, with [green fingers](https://www.instagram.com/laura_surbangarden/)
+-   Skye da Costa Williams, resident witch, with [crotchet hooks](https://www.instagram.com/skyescrochet/)
+-   Me, resident R-nerd
+
+[Fortnum & Mason](https://www.fortnumandmason.com/) was established in 1707, during that time it has been known for many things, including specialising in tin goods and becoming a post office. Today it's known for afternoon tea and food hampers. Their 2024 advent calendar for two consisted of two biscuits and two accompanying teas per day. 
+
+# Data
+
+We all rated the biscuit, tea, and the pairing out of 10, recording our results in a dependable spreadsheet. After which I ingested and after a **few steps** created a flexdashboard. You can check these steps in this [repo](https://github.com/KurtisAsha/annual-advent-appraisal).
+
+## Dashboard
+
+A few navigation notes:
+- There are three tabs at the top: Tea, Biscuit, and Pairing
+- Each tab has:
+  -  3 static value boxes
+  -  An interactive line chart with hover functionality and click / doubleclick legend values
+  - An interactive bar chart, best used by hovering over a row and comparing values. The lower the value the closer that person scored. This was used to determine who had similar taste buds. 
+  
+Here is the [Advent Dashboard](https://rawcdn.githack.com/KurtisAsha/annual-advent-appraisal/0bf4b0f4813e3eebc95b12006af518bcf92cbdb8/advent-appraisal-2024.html)
+
+## Notes
+
+It was a kind-of rush job, I wanted to show the dashboard closely after we finished the advent calendars.
+
+There was an issue of same scoring Tea, Biscuit, or pairing. The flexdashboard would push all other boxes out to accommodate multiple values. Luckily, in the end there was non. 
+
+I showed the dashboard to all participants, were they interested? Well for 10 minutes until Christmas dinner was mentioned. Who can blame them 🤤.
+
+## Acknowledgements
+
+Participants for going along with this!
+
+Packages and package maintainer(s):
+
+-   janitor \| Sam Firke
+-   tidyverse \| Hadley Wickham
+-   plotly \| Carson Sievert
