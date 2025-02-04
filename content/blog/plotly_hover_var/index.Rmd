@@ -1,0 +1,112 @@
+---
+title: "Alternative `plotly` Hover Text In Custom Function"
+author: "Author: Kurtis Smith"
+date: "2024-10-22"
+slug: plotly-hover-var
+#bibliography: [references.bib]
+output: 
+ html_document:
+  fig_width: 10
+  fig_height: 6
+categories:
+  - self-tech-support
+tags:
+  - plotly
+  - rlang
+  - rstats
+summary: "How to add alternative text when hovering over a value using `plotly` for R."
+---
+
+## Problem
+
+How to add alternative text when hovering over a value using `plotly` for R.
+
+A few considerations I had to navigate:
+
+-   Plotly behaves well when referencing columns already assigned in one of it's arguments, for this problem, the variable in question was in the assigned data but not assigned to any argument. In the example below, this would be the "alt_text" column
+
+-   The alternative text was to be passed into a custom function
+
+-   I found a workaround ([Thanks DJack from Stack Overflow](https://stackoverflow.com/posts/49902288/revisions)) which subsets data using \$ but I needed to be able to pass any column through custom function
+
+Let's begin with creating test data.
+
+```{r setup, message = FALSE, warning = FALSE}
+# Load packages
+library(plotly)
+library(rlang)
+library(patchwork)
+
+# Create data
+df <- data.frame(
+ x = 1,
+ y = 1,
+ text = "text",
+ alt_text = "alt_text"
+)
+
+```
+
+## Solution
+
+TEXT
+
+```{r create_plot}
+
+create_plot <- function(df, text){
+ 
+ text <- enquo(text)
+
+  plot_ly(
+  data = df, 
+  x = ~x, 
+  y = ~y, 
+  type = "scatter",
+  mode = "text+marker",
+  text = text,
+  textfont = list(size = 40)
+  )
+ 
+}
+
+create_plot_alt <- function(df, text, alt_text){
+ 
+ text <- enquo(text)
+ alt_text <- enquo(alt_text)
+ 
+ plot_ly(
+  data = df,
+  x = ~x, 
+  y = ~y, 
+  type = "scatter",
+  mode = "text+marker",
+  text = text,
+  textfont = list(size = 40),
+  hovertemplate = df[[rlang::quo_get_expr(alt_text)]] 
+  )
+ 
+}
+
+```
+
+It works! The left shows how it looked using  
+
+```{r visualise}
+
+subplot(
+ create_plot(df = df, text = text),
+ create_plot_alt(df = df, text = text, alt_text = alt_text)
+)
+
+```
+
+# Conclusion
+
+
+
+## Acknowledgements
+
+Packages and package maintainer(s):
+
+-   slider \| Davis Vaughan
+-   tidyverse \| Hadley Wickham
