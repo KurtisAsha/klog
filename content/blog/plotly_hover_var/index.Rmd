@@ -1,9 +1,8 @@
 ---
 title: "Alternative Hover Text In Custom Function with  `plotly`"
 author: "Author: Kurtis Smith"
-date: "2024-10-22"
+date: "2025-02-06"
 slug: plotly-hover-var
-#bibliography: [references.bib]
 output: 
  html_document:
   fig_width: 10
@@ -43,15 +42,12 @@ df <- data.frame(
  text = "text",
  alt_text = "alt_text"
 )
-
 ```
-
 ## Solution
 
 This **create_plot()** function demonstrates how referencing a column against an argument, allows easy access for the hovertemplate argument to be assigned one of those referenced columns. In this example - text.
 
 ```{r create_plot, include=FALSE}
-
 create_plot <- function(df, text){
  
  text <- enquo(text)
@@ -60,18 +56,16 @@ create_plot <- function(df, text){
   data = df, 
   x = ~x, 
   y = ~y, 
+  width = 700, 
+  height = 400,
   type = "scatter",
   mode = "text+marker",
   text = text,
   # not necessary but demonstrates code differences
-  hovertemplate = text, 
-  textfont = list(size = 100)
-  )
- 
-}
+  hovertemplate = text,
+  textfont = list(size = 50, color = "#b44046"))}
 
 ```
-
 This **create_plot_alt()** function demonstrates the difference in syntax. Inspired by Stack Overflows Djack but amended to suit a custom function, `rlang::quo_get_expr()` with [[]] allows for referencing additional columns.
 
 ```{r create_plot_alt, include=FALSE}
@@ -85,10 +79,12 @@ create_plot_alt <- function(df, text, alt_text){
   data = df,
   x = ~x, 
   y = ~y, 
+  width = 700, 
+  height = 400,
   type = "scatter",
   mode = "text+marker",
   text = text,
-  textfont = list(size = 100),
+  textfont = list(size = 50, color = "#57a2a4"),
   hovertemplate = df[[rlang::quo_get_expr(alt_text)]] 
   )
  
@@ -123,7 +119,7 @@ subplot(
 
 # Conclusion
 
-
+Getting this to work took me too long to admit and later became more complicated by passing a SharedData R6 class object for use with the `crosstalk` package. I'll leave that battle for another day. Taking wins where I can, I'll bank this fix and look to explore `rlang` in more detail in the future.
 
 ## Acknowledgements
 
