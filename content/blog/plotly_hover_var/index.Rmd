@@ -91,7 +91,7 @@ create_plot_alt <- function(df, text, alt_text){
 }
 ```
 
-**It works!**. The left plot on hover will show "text", whilst the right shows "alt_text"   
+**It works!**. The first plot with red text - on hover will show "text", whilst the second plot with blue text shows "alt_text"   
 
 ```{r visualise}
 # To remove elements not needed
@@ -108,12 +108,10 @@ p1 <- create_plot(df = df, text = text) %>%
 p_alt <- create_plot_alt(df = df, text = text, alt_text = alt_text) %>% 
  layout(xaxis = void, yaxis = void)
 
-subplot(
- # same hover text as text plotted
- style(p1, showlegend = FALSE),
- # alternative hover text
+# same hover text as text plotted
+ style(p1, showlegend = FALSE)
+# alternative hover text
  style(p_alt, showlegend = FALSE) 
-)
 
 ```
 
