@@ -47,7 +47,7 @@ df <- data.frame(
 
 This **create_plot()** function demonstrates how referencing a column against an argument, allows easy access for the hovertemplate argument to be assigned one of those referenced columns. In this example - text.
 
-```{r create_plot, include=FALSE}
+```{r create_plot}
 create_plot <- function(df, text){
  
  text <- enquo(text)
@@ -56,8 +56,8 @@ create_plot <- function(df, text){
   data = df, 
   x = ~x, 
   y = ~y, 
-  width = 700, 
-  height = 400,
+  width = 300, 
+  height = 300,
   type = "scatter",
   mode = "text+marker",
   text = text,
@@ -68,7 +68,7 @@ create_plot <- function(df, text){
 ```
 This **create_plot_alt()** function demonstrates the difference in syntax. Inspired by Stack Overflows Djack but amended to suit a custom function, `rlang::quo_get_expr()` with [[]] allows for referencing additional columns.
 
-```{r create_plot_alt, include=FALSE}
+```{r create_plot_alt}
 
 create_plot_alt <- function(df, text, alt_text){
  
@@ -79,8 +79,8 @@ create_plot_alt <- function(df, text, alt_text){
   data = df,
   x = ~x, 
   y = ~y, 
-  width = 700, 
-  height = 400,
+  width = 300, 
+  height = 300,
   type = "scatter",
   mode = "text+marker",
   text = text,
