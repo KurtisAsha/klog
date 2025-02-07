@@ -65,7 +65,48 @@ df <- data.frame(
 
 This **create_plot()** function demonstrates how referencing a column against an argument, allows easy access for the hovertemplate argument to be assigned one of those referenced columns. In this example - text.
 
+``` r
+create_plot <- function(df, text){
+ 
+ text <- enquo(text)
+
+  plot_ly(
+  data = df, 
+  x = ~x, 
+  y = ~y, 
+  width = 300, 
+  height = 300,
+  type = "scatter",
+  mode = "text+marker",
+  text = text,
+  # not necessary but demonstrates code differences
+  hovertemplate = text,
+  textfont = list(size = 50, color = "#b44046"))}
+```
+
 This **create_plot_alt()** function demonstrates the difference in syntax. Inspired by Stack Overflows Djack but amended to suit a custom function, `rlang::quo_get_expr()` with \[\[\]\] allows for referencing additional columns.
+
+``` r
+create_plot_alt <- function(df, text, alt_text){
+ 
+ text <- enquo(text)
+ alt_text <- enquo(alt_text)
+ 
+ plot_ly(
+  data = df,
+  x = ~x, 
+  y = ~y, 
+  width = 300, 
+  height = 300,
+  type = "scatter",
+  mode = "text+marker",
+  text = text,
+  textfont = list(size = 50, color = "#57a2a4"),
+  hovertemplate = df[[rlang::quo_get_expr(alt_text)]] 
+  )
+ 
+}
+```
 
 **It works!**. The first plot with red text - on hover will show “text”, whilst the second plot with blue text shows “alt_text”
 
@@ -88,16 +129,16 @@ p_alt <- create_plot_alt(df = df, text = text, alt_text = alt_text) %>%
  style(p1, showlegend = FALSE)
 ```
 
-<div id="htmlwidget-1" style="width:700px;height:400px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"309022705fda":["function () ","plotlyVisDat"]},"cur_data":"309022705fda","attrs":{"309022705fda":{"x":{},"y":{},"mode":"text+marker","text":{},"hovertemplate":{},"textfont":{"size":50,"color":"#b44046"},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"width":700,"height":400,"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"","zeroline":false,"showline":false,"showticklabels":false},"yaxis":{"domain":[0,1],"automargin":true,"title":"","zeroline":false,"showline":false,"showticklabels":false},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[1],"y":[1],"mode":"text+marker","text":"text","hovertemplate":"text","textfont":{"size":50,"color":"#b44046"},"type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null,"showlegend":false}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1" style="width:300px;height:300px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"2eb01e4d7b02":["function () ","plotlyVisDat"]},"cur_data":"2eb01e4d7b02","attrs":{"2eb01e4d7b02":{"x":{},"y":{},"mode":"text+marker","text":{},"hovertemplate":{},"textfont":{"size":50,"color":"#b44046"},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"width":300,"height":300,"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"","zeroline":false,"showline":false,"showticklabels":false},"yaxis":{"domain":[0,1],"automargin":true,"title":"","zeroline":false,"showline":false,"showticklabels":false},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[1],"y":[1],"mode":"text+marker","text":"text","hovertemplate":"text","textfont":{"size":50,"color":"#b44046"},"type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null,"showlegend":false}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 
 ``` r
 # alternative hover text
  style(p_alt, showlegend = FALSE) 
 ```
 
-<div id="htmlwidget-2" style="width:700px;height:400px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2">{"x":{"visdat":{"309085f5d34":["function () ","plotlyVisDat"]},"cur_data":"309085f5d34","attrs":{"309085f5d34":{"x":{},"y":{},"mode":"text+marker","text":{},"textfont":{"size":50,"color":"#57a2a4"},"hovertemplate":"alt_text","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"width":700,"height":400,"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"","zeroline":false,"showline":false,"showticklabels":false},"yaxis":{"domain":[0,1],"automargin":true,"title":"","zeroline":false,"showline":false,"showticklabels":false},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[1],"y":[1],"mode":"text+marker","text":"text","textfont":{"size":50,"color":"#57a2a4"},"hovertemplate":"alt_text","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null,"showlegend":false}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-2" style="width:300px;height:300px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"visdat":{"2eb0ab41a9b":["function () ","plotlyVisDat"]},"cur_data":"2eb0ab41a9b","attrs":{"2eb0ab41a9b":{"x":{},"y":{},"mode":"text+marker","text":{},"textfont":{"size":50,"color":"#57a2a4"},"hovertemplate":"alt_text","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"width":300,"height":300,"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"","zeroline":false,"showline":false,"showticklabels":false},"yaxis":{"domain":[0,1],"automargin":true,"title":"","zeroline":false,"showline":false,"showticklabels":false},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[1],"y":[1],"mode":"text+marker","text":"text","textfont":{"size":50,"color":"#57a2a4"},"hovertemplate":"alt_text","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null,"showlegend":false}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 
 # Conclusion
 
