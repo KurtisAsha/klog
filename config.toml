@@ -3,6 +3,7 @@ theme = "hugo-apero"
 languageCode = "en"
 title = "Klog"
 author = "Kurtis Smith"
+email = "kurtisasha@gmail.com"
 copyright = "" # set to override the auto generated copyright using org info and now year
 googleAnalytics = "G-3VDFEKMNJY"
 #disqusShortname = "" # see params.comments to use utterances or giscus instead of Disqus
@@ -107,7 +108,7 @@ enableEmoji = true
   [[params.social]]
       icon      = "github" # icon name without the 'fa-'
       icon_pack = "fab"
-      url       = "https://github.com/apreshill/apero"
+      url       = "https://github.com/KurtisAsha"
   [[params.social]]
       icon      = "kaggle" # icon name without the 'fa-'
       icon_pack = "fab"
