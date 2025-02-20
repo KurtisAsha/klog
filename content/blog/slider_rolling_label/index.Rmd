@@ -156,6 +156,8 @@ I think `slider` is a great package, was I forced to use it because I couldn't d
 
 ## Acknowledgements
 
+[r-bloggers.com](r-bloggers.com) for the reach, platform, and content
+
 Packages and package maintainer(s):
 
 -   slider \| Davis Vaughan

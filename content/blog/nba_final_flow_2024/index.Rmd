@@ -484,6 +484,8 @@ Specific to this case, having included, as an activity, when players don't move 
 
 ## Acknowledgements
 
+[r-bloggers.com](r-bloggers.com) for the reach, platform, and content
+
 Packages and package maintainer(s):
 
 -   tidyverse \| Hadley Wickham
