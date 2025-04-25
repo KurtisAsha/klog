@@ -9,7 +9,7 @@ output:
   fig_width: 10
   fig_height: 6
 categories:
-  - package-exploration
+  - analysis
 tags:
   - bupaverse
   - sports-analytics
@@ -552,6 +552,8 @@ Further analysis into evasion sports like basketabll could look into including o
 Specific to this case, having included, as an activity, when players don’t move with the ball. This would have been interesting to delve into. I suspect you would see the time Celtics held the ball increase in quarter 4 as they attempt to run the clock.
 
 ## Acknowledgements
+
+[r-bloggers.com](r-bloggers.com) for the reach, platform, and content
 
 Packages and package maintainer(s):
 
