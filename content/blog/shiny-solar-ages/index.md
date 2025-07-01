@@ -73,7 +73,7 @@ jupiter_age_days_calc
 ```
 
 ```
-## [1] 48
+## [1] 49
 ```
 
 Venus inspired the days-based calculation with it's day longer than it's year. Still wrapping my head around that. 
