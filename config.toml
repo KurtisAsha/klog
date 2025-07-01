@@ -104,6 +104,7 @@ enableEmoji = true
     home = ['html']
     section = ['html', 'rss']
     taxonomy = ['html', 'rss']
+    tag = ['html', 'rss']
     term = ['html']
 
   # Social icons may appear on homepage and in site header or footer
